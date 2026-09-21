@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yoga Studio</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            text-align: center;
+            background: #f5f0e6;
+        }
+
+        header {
+            background: purple;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            background: #333;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 25px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            background: white;
+            width: 250px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .box img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        fieldset {
+            width: 300px;
+            margin: auto;
+            text-align: left;
+            background: white;
+        }
+
+        input, select {
+            width: 95%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            background: purple;
+            color: white;
+            padding: 10px 20px;
+            border: 0;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px;
+            }
+
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .box, fieldset {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Peaceful Yoga Studio</h1>
+    <p>Find Peace • Find Balance</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#classes">Classes</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="home">
+    <h2>Home</h2>
+    <p>Relax your mind and improve your body with yoga.</p>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>We provide a peaceful environment for yoga and meditation.</p>
+</section>
+
+<section id="classes">
+    <h2>Our Classes</h2>
+
+    <div class="container">
+
+        <div class="box">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/026/717/009/small/women-meditate-yoga-psychic-women-considers-mind-and-heart-spirituality-esotericism-with-bokeh-defocused-lights-universe-generative-ai-illustration-free-photo.jpg">
+            <h3>Yoga</h3>
+            <p>Improve flexibility and strength.</p>
+        </div>
+
+        <div class="box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKq6HbHPO2MnuOuE3l7jBrl2WDgREnVNjX5hPcX9zubw&s">
+            <h3>Meditation</h3>
+            <p>Relax your mind and improve focus.</p>
+        </div>
+
+        <div class="box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5377x4ASmfCh0e8d5Hs0ESCU_yDh-kuqfjKjVhiPivg&s">
+            <h3>Stretching</h3>
+            <p>Improve flexibility and posture.</p>
+        </div>
+
+        <div class="box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfaIwgMcuzzRZzlJxFdme64EaQIttg5YND0CFk4IXDcw&s">
+            <h3>Relaxation</h3>
+            <p>Calm your body and mind.</p>
+        </div>
+
+    </div>
+</section>
+<h2>Yoga Class Schedule</h2>
+
+<table border="1" cellpadding="10" cellspacing="0" style="margin:auto; background:white;">
+    <tr>
+        <th>Yoga Type</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Duration</th>
+    </tr>
+
+    <tr>
+        <td>Morning Yoga</td>
+        <td>Monday</td>
+        <td>7:00 AM</td>
+        <td>60 Minutes</td>
+    </tr>
+
+    <tr>
+        <td>Power Yoga</td>
+        <td>Wednesday</td>
+        <td>5:00 PM</td>
+        <td>60 Minutes</td>
+    </tr>
+
+    <tr>
+        <td>Hatha Yoga</td>
+        <td>Friday</td>
+        <td>7:00 AM</td>
+        <td>45 Minutes</td>
+    </tr>
+
+    <tr>
+        <td>Relaxation Yoga</td>
+        <td>Sunday</td>
+        <td>6:00 PM</td>
+        <td>45 Minutes</td>
+    </tr>
+</table>
+
+<section id="contact">
+    <h2>Join Us</h2>
+
+    <fieldset>
+        <legend>Registration</legend>
+
+        <label>Name:</label>
+        <input type="text">
+
+        <label>Email:</label>
+        <input type="email">
+
+        <label>Phone:</label>
+        <input type="tel">
+
+        <label>Class:</label>
+        <select>
+            <option>Yoga</option>
+            <option>Meditation</option>
+            <option>Stretching</option>
+            <option>Relaxation</option>
+        </select>
+
+        <button>Register</button>
+    </fieldset>
+</section>
+
+</body>
+</html>
