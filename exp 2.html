@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Yoga Studio Registration Form</title>
+</head>
+
+<body bgcolor = "lightgreen"
+</body>
+
+<center>
+
+<img src="https://img.magnific.com/free-vector/modern-register-now-web-offer-template-with-cursor-design_1017-62622.jpg?semt=ais_hybrid&w=740&q=80" alt="Description of image" width = "200"  align =right>
+<img src="https://media.istockphoto.com/id/2182805095/photo/relaxing-meditation-exercises-in-yoga-studio.jpg?s=612x612&w=0&k=20&c=Ur_ttv5u_QzWyees8-vR-3TPnwlGGmR1Lu-ObFgO2xM=" alt="Description of image" width = "200"  align =left>
+
+<h1>Yoga Studio</h1>
+<h2>Membership Registration Form</h2>
+<div>
+<strong>Welcome</strong>
+<p>Use the form below to register for your preferred yoga membership.</p>
+<small>All fields marked with a star are required.</small>
+</div>
+
+<details>
+<summary>Show form instructions</summary>
+<p>Fill in your details, choose your preferred classes, and submit the form when you are ready.</p>
+</details>
+
+<form>
+
+<fieldset>
+<legend>Personal Details</legend>
+<table>
+<tr>
+<td><label for="name">*Full Name:</label></td>
+<td><input type="text" id="name" name="name" placeholder="Enter your full name" required></td>
+</tr>
+<tr>
+<td><label for="email">*Email Address:</label></td>
+<td><input type="email" id="email" name="email" placeholder="Enter your email" required></td>
+</tr>
+<tr>
+<td><label for="password">Create Password:</label></td>
+<td><input type="password" id="password" name="password" required></td>
+</tr>
+<tr>
+<td><label for="age">Age:</label></td>
+<td><input type="number" id="age" name="age" min="15" max="80"></td>
+</tr>
+<tr>
+<td><label for="joining">Preferred Joining Date:</label></td>
+<td><input type="date" id="joining" name="joining"></td>
+</tr>
+</table>
+</fieldset>
+
+<hr>
+
+<fieldset>
+<legend>Membership Preferences</legend>
+<table>
+<tr>
+<td><strong>Gender</strong></td>
+<td>
+<input type="radio" id="male" name="gender" value="Male">
+<label for="male">Male</label>
+<input type="radio" id="female" name="gender" value="Female">
+<label for="female">Female</label>
+<input type="radio" id="other" name="gender" value="Other">
+<label for="other">Other</label>
+</td>
+</tr>
+<tr>
+<td><strong>Yoga Programs</strong></td>
+<td>
+<input type="checkbox" name="program" value="Hatha Yoga"> Hatha Yoga<br>
+<input type="checkbox" name="program" value="Vinyasa Yoga"> Vinyasa Yoga<br>
+<input type="checkbox" name="program" value="Power Yoga"> Power Yoga<br>
+<input type="checkbox" name="program" value="Meditation"> Meditation
+</td>
+</tr>
+<tr>
+<td><label for="timing">Preferred Class Timing:</label></td>
+<td>
+<select id="timing" name="timing">
+<option value="">-- Select Timing --</option>
+<option>Morning (6:00 AM - 8:00 AM)</option>
+<option>Afternoon (2:00 PM - 4:00 PM)</option>
+<option>Evening (5:00 PM - 7:30 PM)</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><label for="experience">Yoga Experience:</label></td>
+<td>
+<input list="levels" id="experience" name="experience">
+<datalist id="levels">
+<option value="Beginner">
+<option value="Intermediate">
+<option value="Advanced">
+</datalist>
+</td>
+</tr>
+<tr>
+<td><label for="fitness">Fitness Level:</label></td>
+<td><input type="range" id="fitness" name="fitness" min="1" max="10"></td>
+</tr>
+<tr>
+<td><label for="color">Preferred Yoga Mat Colour:</label></td>
+<td><input type="color" id="color" name="color"></td>
+</tr>
+</table>
+</fieldset>
+
+<hr>
+
+<div>
+<button type="submit">Register</button>
+<button type="reset">Reset</button>
+</div>
+
+</form>
+</center>
+
+</body>
+</html>
