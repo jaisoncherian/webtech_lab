@@ -1,126 +1,459 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZenFlow Yoga Studio</title>
 
-<title>Yoga Studio Registration Form</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f8f5;
+    color:#333;
+    line-height:1.6;
+}
+
+/* Navigation */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#24584a;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 8%;
+    z-index:1000;
+}
+
+.logo{
+    color:white;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#9ff0d2;
+}
+
+/* Hero Section */
+/* Multiple Background + Background Size */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1400&q=80');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:60px;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    background:#6dc4a5;
+    color:white;
+    text-decoration:none;
+    padding:15px 32px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#3aa37b;
+}
+
+/* General Section */
+section{
+    padding:90px 8%;
+}
+
+h2{
+    color:#24584a;
+    margin-bottom:8px;
+    font-size:34px;
+}
+
+/* Adjacent Sibling */
+h2 + p{
+    color:#666;
+    font-style:italic;
+    margin-bottom:30px;
+}
+
+/* About Cards */
+/* Rounded Corners */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 8px 18px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#24584a;
+    margin-bottom:10px;
+}
+
+/* Border Image */
+.offer{
+    background:white;
+    padding:30px;
+    border:10px solid transparent;
+    border-image:linear-gradient(45deg,#24584a,#78c2a4,#d9b76d) 1;
+    text-align:center;
+}
+
+.offer h2{
+    margin-bottom:15px;
+}
+
+/* Schedule */
+/* nth-child */
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+th,td{
+    padding:16px;
+    text-align:center;
+}
+
+th{
+    background:#24584a;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#eef9f4;
+}
+
+tr:nth-child(odd){
+    background:white;
+}
+
+/* Contact Form */
+form{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 18px rgba(0,0,0,.1);
+}
+
+input,select,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:18px;
+    border:2px solid #ccc;
+    border-radius:10px;
+    font-size:15px;
+}
+
+/* Pseudo Classes */
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#24584a;
+    outline:none;
+}
+
+input:valid{
+    border-color:green;
+}
+
+input:invalid{
+    border-color:red;
+}
+
+footer{
+    background:#183c32;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Small-screen layout */
+@media (max-width:600px){
+    nav{
+        padding:12px 5%;
+        flex-direction:column;
+        gap:6px;
+    }
+
+    nav .logo{
+        font-size:24px;
+    }
+
+    nav ul{
+        gap:12px;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    nav a{
+        font-size:14px;
+    }
+
+    .hero{
+        min-height:100svh;
+        height:auto;
+        padding:150px 6% 70px;
+    }
+
+    .hero h1{
+        font-size:clamp(36px,12vw,52px);
+        line-height:1.1;
+    }
+
+    .hero p{
+        margin:16px 0 22px;
+        font-size:17px;
+    }
+
+    .btn{
+        padding:13px 22px;
+    }
+
+    section{
+        padding:58px 5%;
+    }
+
+    h2{
+        font-size:28px;
+        line-height:1.2;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .card,
+    form{
+        padding:20px;
+    }
+
+    .offer{
+        padding:22px 16px;
+        border-width:6px;
+    }
+
+    .offer h2{
+        font-size:25px;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+        font-size:14px;
+    }
+
+    th,td{
+        padding:12px 14px;
+    }
+
+    footer{
+        padding:18px 5%;
+        font-size:14px;
+    }
+}
+</style>
 </head>
 
-<body bgcolor = "lightgreen"
-</body>
+<body>
 
-<center>
+<!-- Navigation -->
+<nav>
+    <h2 class="logo">🧘 ZenFlow</h2>
 
-<img src="https://img.magnific.com/free-vector/modern-register-now-web-offer-template-with-cursor-design_1017-62622.jpg?semt=ais_hybrid&w=740&q=80" alt="Description of image" width = "200"  align =right>
-<img src="https://media.istockphoto.com/id/2182805095/photo/relaxing-meditation-exercises-in-yoga-studio.jpg?s=612x612&w=0&k=20&c=Ur_ttv5u_QzWyees8-vR-3TPnwlGGmR1Lu-ObFgO2xM=" alt="Description of image" width = "200"  align =left>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#classes">Classes</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
-<h1>Yoga Studio</h1>
-<h2>Membership Registration Form</h2>
-<div>
-<strong>Welcome</strong>
-<p>Use the form below to register for your preferred yoga membership.</p>
-<small>All fields marked with a star are required.</small>
-</div>
+<!-- Home -->
+<header class="hero" id="home">
+    <div>
+        <h1>Find Your Inner Peace</h1>
+        <p>Transform your mind, body & soul through Yoga</p>
 
-<details>
-<summary>Show form instructions</summary>
-<p>Fill in your details, choose your preferred classes, and submit the form when you are ready.</p>
-</details>
+        <a href="#contact" class="btn">Join Today's Class</a>
+    </div>
+</header>
 
-<form>
+<!-- About -->
+<section id="about">
+    <h2>About Our Studio</h2>
+    <p>We help people achieve physical wellness and mental relaxation through guided yoga practice.</p>
 
-<fieldset>
-<legend>Personal Details</legend>
-<table>
-<tr>
-<td><label for="name">*Full Name:</label></td>
-<td><input type="text" id="name" name="name" placeholder="Enter your full name" required></td>
-</tr>
-<tr>
-<td><label for="email">*Email Address:</label></td>
-<td><input type="email" id="email" name="email" placeholder="Enter your email" required></td>
-</tr>
-<tr>
-<td><label for="password">Create Password:</label></td>
-<td><input type="password" id="password" name="password" required></td>
-</tr>
-<tr>
-<td><label for="age">Age:</label></td>
-<td><input type="number" id="age" name="age" min="15" max="80"></td>
-</tr>
-<tr>
-<td><label for="joining">Preferred Joining Date:</label></td>
-<td><input type="date" id="joining" name="joining"></td>
-</tr>
-</table>
-</fieldset>
+    <div class="cards">
 
-<hr>
+        <div class="card">
+            <h3>Hatha Yoga</h3>
+            <p>Perfect for beginners to improve flexibility and posture.</p>
+        </div>
 
-<fieldset>
-<legend>Membership Preferences</legend>
-<table>
-<tr>
-<td><strong>Gender</strong></td>
-<td>
-<input type="radio" id="male" name="gender" value="Male">
-<label for="male">Male</label>
-<input type="radio" id="female" name="gender" value="Female">
-<label for="female">Female</label>
-<input type="radio" id="other" name="gender" value="Other">
-<label for="other">Other</label>
-</td>
-</tr>
-<tr>
-<td><strong>Yoga Programs</strong></td>
-<td>
-<input type="checkbox" name="program" value="Hatha Yoga"> Hatha Yoga<br>
-<input type="checkbox" name="program" value="Vinyasa Yoga"> Vinyasa Yoga<br>
-<input type="checkbox" name="program" value="Power Yoga"> Power Yoga<br>
-<input type="checkbox" name="program" value="Meditation"> Meditation
-</td>
-</tr>
-<tr>
-<td><label for="timing">Preferred Class Timing:</label></td>
-<td>
-<select id="timing" name="timing">
-<option value="">-- Select Timing --</option>
-<option>Morning (6:00 AM - 8:00 AM)</option>
-<option>Afternoon (2:00 PM - 4:00 PM)</option>
-<option>Evening (5:00 PM - 7:00 PM)</option>
-</select>
-</td>
-</tr>
-<tr>
-<td><label for="experience">Yoga Experience:</label></td>
-<td>
-<input list="levels" id="experience" name="experience">
-<datalist id="levels">
-<option value="Beginner">
-<option value="Intermediate">
-<option value="Advanced">
-</datalist>
-</td>
-</tr>
-<tr>
-<td><label for="fitness">Fitness Level:</label></td>
-<td><input type="range" id="fitness" name="fitness" min="1" max="10"></td>
-</tr>
-<tr>
-<td><label for="color">Preferred Yoga Mat Colour:</label></td>
-<td><input type="color" id="color" name="color"></td>
-</tr>
-</table>
-</fieldset>
+        <div class="card">
+            <h3>Vinyasa Flow</h3>
+            <p>Dynamic yoga synchronized with mindful breathing.</p>
+        </div>
 
-<hr>
+        <div class="card">
+            <h3>Meditation</h3>
+            <p>Calm your mind and reduce everyday stress naturally.</p>
+        </div>
 
-<div>
-<button type="submit">Register</button>
-<button type="reset">Reset</button>
-</div>
+        <div class="card">
+            <h3>Power Yoga</h3>
+            <p>Build endurance, balance and full-body strength.</p>
+        </div>
 
-</form>
-</center>
+    </div>
+</section>
+
+<!-- Offer -->
+<section>
+    <div class="offer">
+        <h2>🌿 Limited Time Wellness Offer</h2>
+        <p>Register this week and receive <b>30% OFF</b> your first month membership plus one free meditation workshop.</p>
+    </div>
+</section>
+
+<!-- Classes -->
+<section id="classes">
+    <h2>Weekly Class Schedule</h2>
+    <p>Morning and evening sessions available for all levels.</p>
+
+    <table>
+
+        <tr>
+            <th>Day</th>
+            <th>Morning</th>
+            <th>Evening</th>
+        </tr>
+
+        <tr>
+            <td>Monday</td>
+            <td>Hatha Yoga</td>
+            <td>Vinyasa</td>
+        </tr>
+
+        <tr>
+            <td>Tuesday</td>
+            <td>Meditation</td>
+            <td>Power Yoga</td>
+        </tr>
+
+        <tr>
+            <td>Wednesday</td>
+            <td>Stretch Yoga</td>
+            <td>Breathing</td>
+        </tr>
+
+        <tr>
+            <td>Thursday</td>
+            <td>Hatha</td>
+            <td>Vinyasa</td>
+        </tr>
+
+        <tr>
+            <td>Friday</td>
+            <td>Power Yoga</td>
+            <td>Guided Meditation</td>
+        </tr>
+
+    </table>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Book Your Free Trial</h2>
+    <p>Fill in your details and we'll reserve your yoga session.</p>
+
+    <form>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>Email</label>
+        <input type="email" placeholder="example@gmail.com" required>
+
+        <label>Phone Number</label>
+        <input type="tel" placeholder="9876543210" pattern="[0-9]{10}" required>
+
+        <label>Select Class</label>
+        <select required>
+            <option>Hatha Yoga</option>
+            <option>Vinyasa Flow</option>
+            <option>Meditation</option>
+            <option>Power Yoga</option>
+        </select>
+
+        <label>Message</label>
+        <textarea rows="4" placeholder="Your wellness goals..."></textarea>
+
+        <button type="submit" class="btn">Register Now</button>
+
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 ZenFlow Yoga Studio | Breathe • Stretch • Relax</p>
+</footer>
 
 </body>
 </html>
