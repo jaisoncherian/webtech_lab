@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Serenity Yoga Studio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f4f5e9;
+            color: #294b37;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #fffdf5;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #356b48;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #355b42;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8%;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #81a66b;
+        }
+
+        .hero-text p {
+            color: #667568;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .hero img {
+            width: 45%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        .register {
+            padding: 50px 8%;
+        }
+
+        .register h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #718073;
+            margin-bottom: 35px;
+        }
+
+        .form-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px #294b3715;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d8e1d4;
+            border-radius: 9px;
+            outline: none;
+            font-size: 15px;
+            background: #fcfdf9;
+        }
+
+        input:focus, select:focus {
+            border-color: #63966a;
+            box-shadow: 0 0 5px #63966a55;
+        }
+
+        .error {
+            color: #d64545;
+            font-size: 12px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .class-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .class-card {
+            border: 2px solid #dce7d9;
+            padding: 18px 8px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+            background: #fbfdf8;
+        }
+
+        .class-card input {
+            display: none;
+        }
+
+        .class-card:hover {
+            transform: translateY(-4px);
+            border-color: #76a878;
+        }
+
+        .class-card:has(input:checked) {
+            background: #e5f0df;
+            border-color: #4d8758;
+        }
+
+        .class-card span {
+            display: block;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .password-box {
+            display: flex;
+            gap: 8px;
+        }
+
+        .password-box input {
+            flex: 1;
+        }
+
+        .password-box button {
+            padding: 10px;
+            border: none;
+            background: #e5f0df;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #294b37;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #477c53;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #2d603b;
+            transform: translateY(-2px);
+        }
+
+        .success-box {
+            display: none;
+            text-align: center;
+            background: #e4f3df;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 12px;
+            color: #286239;
+        }
+
+        footer {
+            background: #294b37;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        @media(max-width: 700px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero img {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .class-options {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 20px;
+            }
+
+            .navbar a {
+                margin-left: 8px;
+                font-size: 13px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <div class="logo">🌿 Serenity Yoga</div>
+
+    <div>
+        <a href="#home">Home</a>
+        <a href="#register">Register</a>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="hero-text">
+        <h1>Find Your Inner <span>Peace</span></h1>
+
+        <p>
+            Discover balance, strength and mindfulness.
+            Join our yoga community and begin your wellness journey today.
+        </p>
+
+        <a href="#register">
+            <button class="submit-btn" style="width:auto;padding:13px 30px">
+                Join Our Studio →
+            </button>
+        </a>
+    </div>
+
+    <img
+        src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900"
+        alt="Yoga practice"
+    >
+
+</section>
+
+<!-- REGISTRATION SECTION -->
+<section class="register" id="register">
+
+    <h2>Join Our Yoga Community</h2>
+
+    <p class="subtitle">
+        Fill in your details to reserve your yoga session.
+    </p>
+
+    <div class="form-box">
+
+        <form id="yogaForm" novalidate>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="example@gmail.com">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="text" id="phone" placeholder="Enter 10 digit number">
+                <span class="error" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Select Your Yoga Class</label>
+
+                <div class="class-options">
+
+                    <label class="class-card">
+                        <input type="radio" name="yoga" value="Hatha Yoga">
+                        <span>🧘</span>
+                        Hatha Yoga
+                    </label>
+
+                    <label class="class-card">
+                        <input type="radio" name="yoga" value="Power Yoga">
+                        <span>💪</span>
+                        Power Yoga
+                    </label>
+
+                    <label class="class-card">
+                        <input type="radio" name="yoga" value="Meditation">
+                        <span>🌿</span>
+                        Meditation
+                    </label>
+
+                </div>
+
+                <span class="error" id="yogaError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Time</label>
+
+                <select id="time">
+                    <option value="">Choose your session</option>
+                    <option>6:00 AM - 7:00 AM</option>
+                    <option>8:00 AM - 9:00 AM</option>
+                    <option>5:00 PM - 6:00 PM</option>
+                    <option>6:00 PM - 7:00 PM</option>
+                </select>
+
+                <span class="error" id="timeError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Create Password</label>
+
+                <div class="password-box">
+                    <input type="password" id="password"
+                        placeholder="Minimum 6 characters">
+
+                    <button type="button" id="togglePassword">
+                        Show
+                    </button>
+                </div>
+
+                <span class="error" id="passwordError"></span>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Register Now →
+            </button>
+
+        </form>
+
+        <div class="success-box" id="successBox">
+            <h2>🎉 Registration Successful!</h2>
+            <p id="successMessage"></p>
+            <p>Welcome to Serenity Yoga Studio!</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Serenity Yoga Studio | Breathe • Balance • Believe</p>
+</footer>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+const form = document.getElementById("yogaForm");
+
+// Show and hide password
+document.getElementById("togglePassword").addEventListener("click", function() {
+
+    let password = document.getElementById("password");
+
+    if (password.type === "password") {
+        password.type = "text";
+        this.innerText = "Hide";
+    } else {
+        password.type = "password";
+        this.innerText = "Show";
+    }
+
+});
+
+
+// Clear individual error messages
+function clearError(id) {
+    document.getElementById(id + "Error").innerText = "";
+}
+
+
+// Live validation when user types
+["name", "email", "phone", "password"].forEach(function(id) {
+
+    document.getElementById(id).addEventListener("input", function() {
+        clearError(id);
+    });
+
+});
+
+
+// Form submission
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let valid = true;
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let password = document.getElementById("password").value;
+    let time = document.getElementById("time").value;
+
+    let yoga = document.querySelector('input[name="yoga"]:checked');
+
+    // Clear all errors
+    document.querySelectorAll(".error").forEach(function(error) {
+        error.innerText = "";
+    });
+
+    document.getElementById("successBox").style.display = "none";
+
+
+    // Name validation
+    if (name.length < 3) {
+        document.getElementById("nameError").innerText =
+            "Please enter at least 3 characters.";
+        valid = false;
+    }
+
+    // Email validation
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerText =
+            "Please enter a valid email address.";
+        valid = false;
+    }
+
+    // Phone validation
+    let phonePattern = /^[0-9]{10}$/;
+
+    if (!phonePattern.test(phone)) {
+        document.getElementById("phoneError").innerText =
+            "Phone number must contain exactly 10 digits.";
+        valid = false;
+    }
+
+    // Password validation
+    if (password.length < 6) {
+        document.getElementById("passwordError").innerText =
+            "Password must have at least 6 characters.";
+        valid = false;
+    }
+
+    // Yoga class validation
+    if (!yoga) {
+        document.getElementById("yogaError").innerText =
+            "Please select a yoga class.";
+        valid = false;
+    }
+
+    // Time validation
+    if (time === "") {
+        document.getElementById("timeError").innerText =
+            "Please select a preferred time.";
+        valid = false;
+    }
+
+
+    // Success message
+    if (valid) {
+
+        document.getElementById("successMessage").innerHTML =
+            "Thank you, <b>" + name + "</b>!<br>" +
+            "Your selected class: <b>" + yoga.value + "</b><br>" +
+            "Preferred time: <b>" + time + "</b>";
+
+        document.getElementById("successBox").style.display = "block";
+
+        form.reset();
+
+        document.getElementById("togglePassword").innerText = "Show";
+
+        document.getElementById("password").type = "password";
+
+        document.getElementById("successBox").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

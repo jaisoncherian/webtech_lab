@@ -1,0 +1,670 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Serenity Yoga - Practice Tracker</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f4f6ed;
+            color: #294b37;
+        }
+
+        header {
+            background: #315b43;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            letter-spacing: 1px;
+        }
+
+        header span {
+            font-size: 14px;
+        }
+
+        .hero {
+            padding: 45px 8%;
+            background: #e3eddb;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #617664;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            margin-bottom: 25px;
+        }
+
+        .welcome h2 {
+            margin-bottom: 8px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 3px 12px #00000008;
+        }
+
+        .stat-card h2 {
+            color: #4c8157;
+            font-size: 27px;
+        }
+
+        .stat-card p {
+            color: #788679;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .progress-box {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            background: #e6ecdf;
+            height: 12px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #65966c;
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s;
+        }
+
+        .task-box {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 3px 15px #00000008;
+        }
+
+        .task-box h2 {
+            margin-bottom: 18px;
+        }
+
+        .task-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 13px;
+            border: 1px solid #d4dfd1;
+            border-radius: 9px;
+            outline: none;
+            font-size: 14px;
+            min-width: 0;
+        }
+
+        input:focus {
+            border-color: #65966c;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .add-btn {
+            background: #477c53;
+            color: white;
+            padding: 12px 20px;
+        }
+
+        .suggestions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .suggestions button {
+            padding: 8px 12px;
+            background: #edf3e9;
+            color: #426b4b;
+            font-size: 12px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin: 25px 0 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 9px 17px;
+            background: #edf1e9;
+            color: #45654b;
+        }
+
+        .filter-btn.active {
+            background: #477c53;
+            color: white;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: #f7f9f4;
+            border-radius: 11px;
+            margin-top: 12px;
+            gap: 10px;
+        }
+
+        .task-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .task-left input {
+            width: 18px;
+            height: 18px;
+            accent-color: #477c53;
+            cursor: pointer;
+        }
+
+        .task-name {
+            font-weight: 600;
+        }
+
+        .task-category {
+            display: block;
+            color: #8a9989;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .done {
+            text-decoration: line-through;
+            color: #9ba69b;
+        }
+
+        .delete-btn {
+            background: #fbe8e3;
+            color: #bc574b;
+            padding: 8px 12px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #879586;
+        }
+
+        .message {
+            text-align: center;
+            padding: 18px;
+            margin-top: 15px;
+            background: #e6f1df;
+            color: #356943;
+            border-radius: 10px;
+            display: none;
+        }
+
+        footer {
+            background: #315b43;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 27px;
+            }
+
+            .stats {
+                gap: 8px;
+            }
+
+            .stat-card {
+                padding: 13px 5px;
+            }
+
+            .stat-card h2 {
+                font-size: 22px;
+            }
+
+            .task-form {
+                flex-direction: column;
+            }
+
+            .add-btn {
+                padding: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>🌿 Serenity Yoga</h2>
+    <span>Mind • Body • Balance</span>
+</header>
+
+<section class="hero">
+    <h1>Your Daily Yoga Journey 🧘</h1>
+    <p>
+        Build a peaceful routine, track your practice
+        and celebrate every small achievement.
+    </p>
+</section>
+
+<div class="container">
+
+    <div class="welcome">
+        <h2>Welcome to Your Practice!</h2>
+        <p>Every small step brings you closer to balance.</p>
+    </div>
+
+    <!-- Statistics -->
+    <div class="stats">
+
+        <div class="stat-card">
+            <h2 id="totalCount">0</h2>
+            <p>Total Activities</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="openCount">0</h2>
+            <p>Remaining</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="doneCount">0</h2>
+            <p>Completed</p>
+        </div>
+
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-box">
+
+        <div class="progress-info">
+            <b>Daily Practice Progress</b>
+            <span id="percentage">0%</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+    </div>
+
+    <!-- Task Tracker -->
+    <div class="task-box">
+
+        <h2>My Yoga Activities</h2>
+
+        <form class="task-form" id="taskForm">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Add a yoga activity..."
+            >
+
+            <button class="add-btn" type="submit">
+                + Add Activity
+            </button>
+
+        </form>
+
+        <!-- Quick Suggestions -->
+        <div class="suggestions">
+
+            <button type="button" onclick="quickAdd('Morning Meditation')">
+                🧘 Meditation
+            </button>
+
+            <button type="button" onclick="quickAdd('Sun Salutation')">
+                ☀️ Sun Salutation
+            </button>
+
+            <button type="button" onclick="quickAdd('Breathing Exercises')">
+                🌿 Breathing
+            </button>
+
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="open">
+                Remaining
+            </button>
+
+            <button class="filter-btn" data-filter="finished">
+                Completed
+            </button>
+
+        </div>
+
+        <ul id="taskList" style="list-style:none"></ul>
+
+        <div class="empty" id="emptyMessage">
+            🌱 No activities yet. Start your yoga journey!
+        </div>
+
+        <div class="message" id="successMessage">
+            🎉 Wonderful! You completed all your activities!
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>Serenity Yoga Studio | Breathe • Balance • Believe</p>
+</footer>
+
+
+<script>
+
+// 1. STATE
+let tasks = [];
+
+let currentFilter = "all";
+
+
+// 2. CREATE TASK
+function createTask(text) {
+
+    return {
+        id: Date.now() + Math.random(),
+        text: text,
+        done: false
+    };
+
+}
+
+
+// 3. ADD TASK
+function addTask(text) {
+
+    if (text.trim() === "") {
+        alert("Please enter an activity!");
+        return;
+    }
+
+    tasks.push(createTask(text.trim()));
+
+    saveAndRender();
+
+}
+
+
+// 4. QUICK ADD
+function quickAdd(text) {
+
+    addTask(text);
+
+}
+
+
+// 5. TOGGLE TASK
+function toggleTask(id) {
+
+    tasks = tasks.map(task =>
+        task.id === id
+            ? { ...task, done: !task.done }
+            : task
+    );
+
+    saveAndRender();
+
+}
+
+
+// 6. DELETE TASK
+function deleteTask(id) {
+
+    tasks = tasks.filter(task => task.id !== id);
+
+    saveAndRender();
+
+}
+
+
+// 7. GET VISIBLE TASKS
+function getVisible() {
+
+    if (currentFilter === "open") {
+        return tasks.filter(task => !task.done);
+    }
+
+    if (currentFilter === "finished") {
+        return tasks.filter(task => task.done);
+    }
+
+    return tasks;
+
+}
+
+
+// 8. UPDATE STATISTICS
+function updateStats() {
+
+    let total = tasks.length;
+
+    let completed = tasks.filter(task => task.done).length;
+
+    let remaining = total - completed;
+
+    let progress = total === 0
+        ? 0
+        : Math.round((completed / total) * 100);
+
+    document.getElementById("totalCount").textContent = total;
+
+    document.getElementById("doneCount").textContent = completed;
+
+    document.getElementById("openCount").textContent = remaining;
+
+    document.getElementById("percentage").textContent = progress + "%";
+
+    document.getElementById("progressFill").style.width =
+        progress + "%";
+
+    document.getElementById("successMessage").style.display =
+        total > 0 && completed === total ? "block" : "none";
+
+}
+
+
+// 9. RENDER TASKS
+function renderTasks() {
+
+    let taskList = document.getElementById("taskList");
+
+    taskList.innerHTML = "";
+
+    let visibleTasks = getVisible();
+
+    visibleTasks.forEach(task => {
+
+        let li = document.createElement("li");
+
+        li.className = "task-item";
+
+        let left = document.createElement("div");
+
+        left.className = "task-left";
+
+        let checkbox = document.createElement("input");
+
+        checkbox.type = "checkbox";
+
+        checkbox.checked = task.done;
+
+        checkbox.addEventListener("change", function() {
+            toggleTask(task.id);
+        });
+
+        let content = document.createElement("div");
+
+        let name = document.createElement("span");
+
+        name.textContent = task.text;
+
+        name.className = task.done
+            ? "task-name done"
+            : "task-name";
+
+        let category = document.createElement("small");
+
+        category.textContent = "🌿 Yoga Practice";
+
+        category.className = "task-category";
+
+        content.appendChild(name);
+
+        content.appendChild(category);
+
+        left.appendChild(checkbox);
+
+        left.appendChild(content);
+
+        let deleteButton = document.createElement("button");
+
+        deleteButton.textContent = "Delete";
+
+        deleteButton.className = "delete-btn";
+
+        deleteButton.addEventListener("click", function() {
+            deleteTask(task.id);
+        });
+
+        li.appendChild(left);
+
+        li.appendChild(deleteButton);
+
+        taskList.appendChild(li);
+
+    });
+
+    document.getElementById("emptyMessage").style.display =
+        visibleTasks.length === 0 ? "block" : "none";
+
+    updateStats();
+
+}
+
+
+// 10. SAVE AND RENDER
+function saveAndRender() {
+
+    renderTasks();
+
+}
+
+
+// 11. FORM SUBMISSION
+document.getElementById("taskForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let input = document.getElementById("taskInput");
+
+    addTask(input.value);
+
+    input.value = "";
+
+    input.focus();
+
+});
+
+
+// 12. FILTER BUTTONS
+document.querySelectorAll(".filter-btn").forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        currentFilter = this.dataset.filter;
+
+        document.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        renderTasks();
+
+    });
+
+});
+
+
+// INITIAL DISPLAY
+renderTasks();
+
+</script>
+
+</body>
+</html>
