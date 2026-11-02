@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Yoga Studio</title>
+
+    <style>
+        :root{--forest:#1f5c40;--leaf:#2e8b57;--mint:#d9f5e3;--cream:#fffaf0;--ink:#173b2b;--coral:#e89468;}
+        *{box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{margin:0;font-family:Georgia, 'Times New Roman', serif;background:var(--cream);color:var(--ink);line-height:1.6;}
+
+        header{
+            background:linear-gradient(120deg,#174b38 0%,#2e8b57 55%,#74b886 100%);
+            color:white;
+            padding:72px 8% 62px;
+            position:relative;
+            overflow:hidden;
+        }
+        header:after{content:'◌';position:absolute;right:8%;top:-48px;font-size:240px;line-height:1;color:rgba(255,255,255,.12);}
+        .hero-content{max-width:720px;position:relative;z-index:1;}
+        .eyebrow{color:#c6f0d1;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;}
+        header h1{font-size:clamp(38px,6vw,72px);line-height:1.05;margin:12px 0 18px;}
+        header p{font-size:19px;margin:0;max-width:560px;}
+        .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+        .hero-actions a{background:#fff;border-radius:30px;color:var(--forest);font-family:Arial,Helvetica,sans-serif;font-weight:bold;padding:11px 20px;text-decoration:none;}
+        .hero-actions a:last-child{background:transparent;border:1px solid rgba(255,255,255,.65);color:#fff;}
+        .quick-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:2% auto 34px;position:relative;z-index:2;}
+        .fact{background:#fff;border:1px solid #e1eadf;border-radius:12px;box-shadow:0 10px 24px rgba(31,92,64,.09);padding:19px 20px;}
+        .fact strong{display:block;color:var(--leaf);font-size:25px;}
+        .fact span{font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#607366;}
+
+        nav{
+            background:#fff;
+            border-bottom:1px solid #e3eee4;
+            padding:15px 8%;
+            text-align:right;
+            position:sticky;
+            top:0;
+            z-index:3;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:var(--forest);
+            margin-left:22px;
+            font-family:Arial,Helvetica,sans-serif;
+            font-weight:bold;
+            font-size:13px;
+        }
+
+        .container{
+            width:min(1100px,88%);
+            margin:auto;
+        }
+
+        .box{
+            background:white;
+            border:1px solid #e5eee5;
+            padding:30px;
+            margin:22px 0;
+            border-radius:12px;
+            box-shadow:0 5px 18px rgba(23,59,43,.045);
+        }
+        .box h2{color:var(--forest);font-size:28px;margin-top:0;}
+        .intro-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:center;}
+        .intro-grid img{height:310px;object-fit:cover;}
+        .section-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:start;}
+        .section-grid .box{margin:0;}
+        .tag{color:var(--coral);font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;}
+        .quote{background:var(--mint);border-left:4px solid var(--leaf);font-style:italic;padding:18px 22px;margin-top:25px;}
+        .box ul,.box ol{padding-left:22px;}
+        .box li{margin:7px 0;}
+        .box a{color:var(--leaf);font-weight:bold;}
+        .style-list dt{color:var(--forest);font-size:18px;margin-top:16px;}
+        .style-list dd{margin-left:0;color:#607366;}
+        .contact-box{background:#173b2b;color:#effcf1;border:0;}
+        .contact-box h2,.contact-box a{color:#b9efc8;}
+        .contact-box p{margin:8px 0;}
+        .contact-box .contact-details{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 30px;}
+
+        @media (max-width:700px){header{padding:52px 7% 66px;}header h1{font-size:43px;}nav{text-align:center;white-space:nowrap;overflow:auto;}nav a{margin:0 9px;font-size:12px;}.quick-facts{grid-template-columns:1fr;margin-top:-28px;}.fact{padding:12px 16px;}.intro-grid,.section-grid{grid-template-columns:1fr;gap:0;}.box{padding:23px;}.intro-grid img{height:230px;}}
+
+
+        img{
+            width:100%;
+            max-width:650px;
+            display:block;
+            margin:auto;
+            border-radius:12px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        table,th,td{
+            border:1px solid #b5d8bd;
+        }
+
+        th{
+            background:var(--leaf);
+            color:white;
+        }
+
+        th,td{
+            padding:12px;
+            text-align:center;
+        }
+
+        footer{
+            background:#173b2b;
+            color:white;
+            text-align:center;
+            padding:25px 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Header Section -->
+<header>
+    <div class="hero-content">
+        <span class="eyebrow">Mindful movement · Everyday balance</span>
+        <h1>🧘 Serenity Yoga Studio</h1>
+        <p>Find a steadier rhythm through breath-led movement, welcoming classes, and a community that meets you where you are.</p>
+        <div class="hero-actions">
+            <a href="#classes">Explore classes</a>
+            <a href="#contact">Start your practice</a>
+        </div>
+    </div>
+</header>
+
+<!-- Navigation Section -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#classes">Classes</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#contact">Contact</a>
+    <a href="#top">Top</a>
+</nav>
+
+<div class="container">
+
+    <div class="quick-facts">
+        <div class="fact"><strong>4.9 / 5</strong><span>Loved by our community</span></div>
+        <div class="fact"><strong>All levels</strong><span>Beginner-friendly guidance</span></div>
+        <div class="fact"><strong>7 days</strong><span>Classes throughout the week</span></div>
+    </div>
+
+    <!-- About Section -->
+    <div class="box intro-grid" id="about">
+        <div>
+        <span class="tag">A softer way to get stronger</span>
+        <h2>Make space for stillness.</h2>
+
+        <p>
+            Serenity Yoga Studio is a peaceful wellness center dedicated to
+            improving physical health, mental clarity, and emotional balance.
+        </p>
+
+        <p>
+            We offer beginner-friendly yoga sessions, meditation classes,
+            breathing exercises, and personalized wellness programs for all ages.
+        </p>
+        <div class="quote">“The body benefits from movement, and the mind benefits from stillness.”</div>
+        </div>
+
+        <!-- Clickable Image Link -->
+        <a href="https://www.yogaalliance.org" target="_blank">
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=900"
+                 alt="Yoga Studio">
+        </a>
+
+    </div>
+
+    <!-- Classes Section -->
+    <div class="section-grid">
+    <div class="box" id="classes">
+        <span class="tag">Your week, gently structured</span>
+        <h2>Weekly Class Schedule</h2>
+
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Class</th>
+                <th>Time</th>
+            </tr>
+
+            <tr>
+                <td>Monday</td>
+                <td>Hatha Yoga</td>
+                <td>7:00 AM</td>
+            </tr>
+
+            <tr>
+                <td>Wednesday</td>
+                <td>Vinyasa Flow</td>
+                <td>6:00 PM</td>
+            </tr>
+
+            <tr>
+                <td>Friday</td>
+                <td>Power Yoga</td>
+                <td>5:30 PM</td>
+            </tr>
+
+            <tr>
+                <td>Sunday</td>
+                <td>Meditation</td>
+                <td>8:00 AM</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Ordered Nested List -->
+    <div class="box">
+        <span class="tag">Your first session</span>
+        <h2>Beginner Yoga Plan</h2>
+
+        <ol>
+            <li>Warm Up
+                <ol>
+                    <li>Neck Stretch</li>
+                    <li>Shoulder Rotation</li>
+                </ol>
+            </li>
+
+            <li>Yoga Poses
+                <ol>
+                    <li>Mountain Pose</li>
+                    <li>Tree Pose</li>
+                    <li>Cobra Pose</li>
+                </ol>
+            </li>
+
+            <li>Cool Down
+                <ol>
+                    <li>Deep Breathing</li>
+                    <li>Relaxation</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+    </div>
+
+    <!-- Unordered Nested List -->
+    <div class="box" id="benefits">
+        <h2>Benefits of Yoga</h2>
+
+        <ul>
+            <li>Physical Benefits
+                <ul>
+                    <li>Better flexibility</li>
+                    <li>Improved posture</li>
+                    <li>Increased strength</li>
+                </ul>
+            </li>
+
+            <li>Mental Benefits
+                <ul>
+                    <li>Stress reduction</li>
+                    <li>Better concentration</li>
+                    <li>Peaceful sleep</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Description List -->
+    <div class="box">
+        <h2>Popular Yoga Styles</h2>
+
+        <dl class="style-list">
+            <dt><b>Hatha Yoga</b></dt>
+            <dd>A gentle practice focusing on basic postures and breathing.</dd>
+
+            <dt><b>Vinyasa Yoga</b></dt>
+            <dd>A dynamic flow connecting movement with breath.</dd>
+
+            <dt><b>Power Yoga</b></dt>
+            <dd>An energetic style that builds strength and endurance.</dd>
+        </dl>
+    </div>
+
+    <!-- Hyperlinks Section -->
+    <div class="box contact-box" id="contact">
+        <h2>Contact Us</h2>
+
+        <p><b>External Link:</b>
+            <a href="https://www.yogaalliance.org" target="_blank">
+                Visit Yoga Alliance
+            </a>
+        </p>
+
+        <p><b>Internal Link:</b>
+            <a href="#classes">Go to Class Schedule</a>
+        </p>
+
+        <p><b>Bookmark Link:</b>
+            <a href="#top">Back to Top</a>
+        </p>
+
+        <p><b>Email:</b>
+            <a href="mailto:info@serenityyoga.com">
+                info@serenityyoga.com
+            </a>
+        </p>
+
+        <p><b>Phone:</b>
+            <a href="tel:+919876543210">
+                +91 98765 43210
+            </a>
+        </p>
+    </div>
+
+</div>
+
+<!-- Footer Section -->
+<footer id="top">
+    <p>© 2026 Serenity Yoga Studio | Breathe. Stretch. Smile.</p>
+</footer>
+
+</body>
+</html>
+
