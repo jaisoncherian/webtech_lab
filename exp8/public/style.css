@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+
+:root { --ink: #203a32; --sage: #dce8dd; --cream: #f8f6f0; --coral: #d7775e; --muted: #65756d; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--cream); font-family: 'DM Sans', sans-serif; line-height: 1.6; }
+.container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+.site-header { background: var(--cream); padding: 22px 0; }
+.nav, .nav-links, .section-heading, .booking-layout, .footer .container { display: flex; align-items: center; }
+.nav { justify-content: space-between; }
+.brand { color: var(--ink); font-size: 1.3rem; font-weight: 700; text-decoration: none; letter-spacing: -.04em; }
+.brand span { color: var(--coral); }
+.nav-links { gap: 28px; }
+.nav-links a, .text-link { color: var(--ink); text-decoration: none; font-size: .9rem; }
+.nav-button, .button { background: var(--ink); color: white !important; border: 0; border-radius: 30px; padding: 12px 21px; cursor: pointer; display: inline-block; font: inherit; text-decoration: none; }
+.hero { background: var(--sage); padding: 100px 0 125px; }
+.hero-content { max-width: 1120px; }
+.eyebrow { color: var(--coral); font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.08; letter-spacing: -.03em; }
+h1 { font-size: clamp(3.2rem, 8vw, 6.2rem); margin-bottom: 24px; }
+h2 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 20px; }
+em { color: var(--coral); font-weight: 500; }
+.hero-text { color: var(--muted); max-width: 450px; margin-bottom: 30px; }
+.button span { margin-left: 18px; }
+.section { padding: 90px 0; }
+.section-heading { justify-content: space-between; margin-bottom: 35px; }
+.class-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.class-card { background: white; border-radius: 4px; padding: 34px 30px; min-height: 245px; border-bottom: 3px solid var(--sage); }
+.featured-card { background: var(--ink); color: white; border-color: var(--coral); }
+.class-card p { color: var(--muted); }
+.featured-card p { color: #b7c8c0; }
+.card-number { color: var(--coral); font-size: .8rem; font-weight: 700; }
+.class-card h3 { font-family: 'Playfair Display', serif; font-size: 1.65rem; font-weight: 500; margin: 18px 0 10px; }
+.class-card strong { font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
+.booking-section { background: var(--sage); padding: 90px 0; }
+.booking-layout { align-items: flex-start; justify-content: space-between; gap: 80px; }
+.booking-layout > div { flex: 1; }
+.booking-intro { color: var(--muted); max-width: 360px; }
+.booking-form { background: white; border-radius: 5px; padding: 34px; width: min(100%, 450px); }
+.booking-form label { display: block; font-size: .78rem; font-weight: 700; margin: 0 0 7px; }
+.booking-form input, .booking-form select { width: 100%; padding: 13px; border: 1px solid #d5ded8; border-radius: 2px; margin-bottom: 18px; color: var(--ink); font: inherit; background: white; }
+.booking-form .button { width: 100%; }
+.form-message { margin: 15px 0 0; font-size: .85rem; }
+.success { color: #28714d; }.error { color: #b54132; }
+.page-heading { background: var(--sage); padding: 80px 0; }.page-heading h1 { font-size: clamp(3rem, 7vw, 5rem); }.page-heading p:last-child { color: var(--muted); max-width: 500px; }
+.class-list { display: grid; gap: 18px; }.class-list .class-card { min-height: auto; }
+.footer { background: var(--ink); color: #b7c8c0; padding: 30px 0; }.footer .container { justify-content: space-between; }.footer .brand { color: white; }.footer p { margin: 0; font-size: .85rem; }
+@media (max-width: 700px) { .nav-links { gap: 12px; }.nav-links a:not(.nav-button) { display: none; }.hero { padding: 70px 0 90px; }.section-heading, .booking-layout, .footer .container { align-items: flex-start; flex-direction: column; }.class-grid { grid-template-columns: 1fr; }.booking-layout { gap: 35px; }.booking-form { width: 100%; }.footer p { margin-top: 12px; } }
