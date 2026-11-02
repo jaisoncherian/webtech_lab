@@ -1,0 +1,12 @@
+{
+  "name": "yoga-studio",
+  "version": "1.0.0",
+  "description": "A beginner-friendly Yoga Studio website built with Node.js and Express.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
